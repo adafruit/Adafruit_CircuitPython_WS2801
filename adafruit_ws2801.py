@@ -81,11 +81,10 @@ class WS2801:
             self.cpin.value = False
         self._n = n
         self._buf = bytearray(n * 3)
-        ### TODO - review brightness oddity inherited from adafruit_dotstar
         self._brightness = 1.0
         self.brightness = brightness
         self.auto_write = auto_write
-        ### TODO - review/consider adding GRB support like that in  c++ version
+        ### TODO - review/consider adding GRB support like that in c++ version
 
     def deinit(self):
         """Blank out the DotStars and release the resources."""
