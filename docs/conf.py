@@ -35,8 +35,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Adafruit WS2801 Library'
-copyright = u'2017 Kevin J Walters'
-author = u'Kevin J Walters'
+copyright = u'2017 Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters'
+author = u'Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
