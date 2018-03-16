@@ -81,7 +81,7 @@ class WS2801:
             self.cpin.value = False
         self._n = n
         self._buf = bytearray(n * 3)
-        self._brightness = 1.0
+        self._brightness = 1.0  ### keeps pylint happy
         self.brightness = brightness
         self.auto_write = auto_write
         ### TODO - review/consider adding GRB support like that in c++ version
