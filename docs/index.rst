@@ -23,14 +23,14 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
-
 .. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    12mm Diffused Thin Digital RGB LED Pixels (Strand of 25) <https://www.adafruit.com/product/322>
+    12mm Diffused Flat Digital RGB LED Pixels (Strand of 25) <https://www.adafruit.com/product/738>
+    36mm Square 12V Digital RGB LED Pixels (Strand of 20) <https://www.adafruit.com/product/683>
+    30mm Dots - 12V Digital RGB LED Pixels (Strand of 20) <https://www.adafruit.com/product/1547>
+    75mm Bars - 12V Digital RGB LED Pixels (Strand of 21) <https://www.adafruit.com/product/1548>
 
 .. toctree::
     :caption: Other Links
