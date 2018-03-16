@@ -3,7 +3,7 @@
 # Copyright (c) 2016 Damien P. George (original Neopixel object)
 # Copyright (c) 2017 Ladyada
 # Copyright (c) 2017 Scott Shawcroft for Adafruit Industries
-# Copyright (c) 2018 Kevin Walters
+# Copyright (c) 2018 Kevin J Walters
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -24,10 +24,10 @@
 # THE SOFTWARE.
 
 """
-`adafruit_ws2801` - WS2801 LED pixel string driver
+`Adafruit_WS2801` - WS2801 LED pixel string driver
 ====================================================
 
-* Author(s): Damien P. George, Limor Fried & Scott Shawcroft, Kevin Walters
+* Author(s): Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters
 """
 import math
 
