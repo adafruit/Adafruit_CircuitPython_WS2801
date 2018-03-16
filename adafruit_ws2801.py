@@ -82,6 +82,9 @@ class WS2801:
         self._n = n
         self._buf = bytearray(n * 3)
         self._brightness = 1.0  ### keeps pylint happy
+        # Set auto_write to False temporarily so brightness setter does _not_
+        # call show() while in __init__.
+        self.auto_write = False
         self.brightness = brightness
         self.auto_write = auto_write
         ### TODO - review/consider adding GRB support like that in c++ version
@@ -161,6 +164,8 @@ class WS2801:
     @brightness.setter
     def brightness(self, brightness):
         self._brightness = min(max(brightness, 0.0), 1.0)
+        if self.auto_write:
+            self.show()
 
     def fill(self, color):
         """Colors all pixels the given ***color***."""
