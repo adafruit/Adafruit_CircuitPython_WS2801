@@ -13,7 +13,13 @@ Introduction
     :target: https://travis-ci.org/adafruit/Adafruit_CircuitPython_WS2801
     :alt: Build Status
 
-.. todo:: Describe what the library does.
+Higher level WS2801 driver that presents the LED string as a sequence.
+It is the same api as the
+`NeoPixel library <https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel>`_.
+
+Colors are stored as tuples by default. However, you can also use int hex syntax
+to set values similar to colors on the web. For example, ``0x800000`` (``#800000``
+on the web) is equivalent to ``(0x80, 0, 0)``.
 
 Dependencies
 =============
@@ -29,7 +35,17 @@ This is easily achieved by downloading
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the examples folder and be included in docs/examples.rst.
+This example demonstrates the library driving 
+`a strand of 25 RGB leds <https://www.adafruit.com/product/322>`_ by a
+`Gemma M0 <https://www.adafruit.com/product/3501>`_ using the hardware SPI capable outputs.
+
+.. code-block:: python
+
+    import board
+    import adafruit_ws2801
+
+    leds = adafruit_ws2801.WS2801(board.D2, board.D0, 25)
+    leds.fill((0x80, 0, 0))
 
 Contributing
 ============
