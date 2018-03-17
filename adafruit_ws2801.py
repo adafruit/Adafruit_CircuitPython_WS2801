@@ -92,7 +92,7 @@ class WS2801:
     def deinit(self):
         """Blank out the DotStars and release the resources."""
         self.auto_write = False
-        black=(0,0,0)
+        black = (0, 0, 0)
         self.fill(black)
         self.show()
         if self._spi:
@@ -119,7 +119,7 @@ class WS2801:
         else:
             r, g, b = value
         # red/green/blue order for WS2801
-        self._buf[offset]     = r
+        self._buf[offset] = r
         self._buf[offset + 1] = g
         self._buf[offset + 2] = b
 
