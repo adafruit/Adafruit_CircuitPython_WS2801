@@ -1,4 +1,5 @@
-### Based on https://github.com/adafruit/Adafruit_CircuitPython_DotStar/blob/master/examples/dotstar_simpletest.py
+### Based on example from
+### https://github.com/adafruit/Adafruit_CircuitPython_DotStar/tree/master/examples
 
 import time
 import random
