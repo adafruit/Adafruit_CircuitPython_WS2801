@@ -57,12 +57,12 @@ class WS2801:
 
         import adafruit_ws2801
         import time
-        from board import *
+        import board
 
-        RED = 0x100000
+        darkred = 0x100000
 
         with adafruit_ws2801.WS2801(board.D2, board.D0, 25, brightness=1.0) as pixels:
-            pixels[0] = RED
+            pixels[0] = darkred
             time.sleep(2)
     """
 
