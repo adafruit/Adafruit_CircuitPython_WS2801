@@ -24,7 +24,7 @@
 # THE SOFTWARE.
 
 """
-`Adafruit_WS2801` - WS2801 LED pixel string driver
+`adafruit_ws2801` - WS2801 LED pixel string driver
 ====================================================
 
 * Author(s): Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters
