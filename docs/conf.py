@@ -17,7 +17,7 @@ extensions = [
 ]
 
 ### Using busio
-autodoc_mock_imports = ["digitalio", "busio"]
+# autodoc_mock_imports = ["digitalio", "busio"]
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3.4', None),'BusDevice': ('https://circuitpython.readthedocs.io/projects/bus_device/en/latest/', None),'CircuitPython': ('https://circuitpython.readthedocs.io/en/latest/', None)}
 
