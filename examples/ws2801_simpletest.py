@@ -7,10 +7,10 @@ import board
 import adafruit_ws2801
 
 ### Example for a GEMMA M0 driving 50 12mm leds
-oclock=board.D2
-odata=board.D0
-numleds=50
-bright=1.0
+oclock = board.D2
+odata = board.D0
+numleds = 50
+bright = 1.0
 leds = adafruit_ws2801.WS2801(oclock, odata, numleds, brightness=bright, auto_write=False)
 
 ######################### HELPERS ##############################
