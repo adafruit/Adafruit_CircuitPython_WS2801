@@ -9,8 +9,8 @@ Introduction
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.org/adafruit/Adafruit_CircuitPython_WS2801.svg?branch=master
-    :target: https://travis-ci.org/adafruit/Adafruit_CircuitPython_WS2801
+.. image:: https://travis-ci.com/adafruit/Adafruit_CircuitPython_WS2801.svg?branch=master
+    :target: https://travis-ci.com/adafruit/Adafruit_CircuitPython_WS2801
     :alt: Build Status
 
 Higher level WS2801 driver that presents the LED string as a sequence.
