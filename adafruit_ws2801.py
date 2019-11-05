@@ -144,14 +144,14 @@ class WS2801:
             out = []
             for in_i in range(*index.indices(self._n)):
                 out.append(
-                    tuple(self._buf[in_i * 3 + (2 - i)] for i in range(3)))
+                    tuple(self._buf[in_i * 3 + i] for i in range(3)))
             return out
         if index < 0:
             index += len(self)
         if index >= self._n or index < 0:
             raise IndexError
         offset = index * 3
-        return tuple(self._buf[offset + (2 - i)] for i in range(3))
+        return tuple(self._buf[offset + i] for i in range(3))
 
     def __len__(self):
         return self._n
