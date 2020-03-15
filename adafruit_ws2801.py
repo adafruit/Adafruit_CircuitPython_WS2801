@@ -39,6 +39,7 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_WS2801.git"
 
 ### based on https://github.com/adafruit/Adafruit_CircuitPython_DotStar
 
+
 class WS2801:
     """
     A sequence of WS2801 controlled LEDs.
@@ -72,7 +73,7 @@ class WS2801:
             self._spi = busio.SPI(clock, MOSI=data)
             while not self._spi.try_lock():
                 pass
-            self._spi.configure(baudrate=1000*1000)
+            self._spi.configure(baudrate=1000 * 1000)
         except ValueError:
             self.dpin = digitalio.DigitalInOut(data)
             self.cpin = digitalio.DigitalInOut(clock)
@@ -114,8 +115,8 @@ class WS2801:
         offset = index * 3
         if isinstance(value, int):
             r = value >> 16
-            g = (value >> 8) & 0xff
-            b = value & 0xff
+            g = (value >> 8) & 0xFF
+            b = value & 0xFF
         else:
             r, g, b = value
         # red/green/blue order for WS2801
@@ -143,8 +144,7 @@ class WS2801:
         if isinstance(index, slice):
             out = []
             for in_i in range(*index.indices(self._n)):
-                out.append(
-                    tuple(self._buf[in_i * 3 + i] for i in range(3)))
+                out.append(tuple(self._buf[in_i * 3 + i] for i in range(3)))
             return out
         if index < 0:
             index += len(self)
@@ -180,7 +180,7 @@ class WS2801:
     def _ds_writebytes(self, buf):
         for b in buf:
             for _ in range(8):
-                self.dpin.value = (b & 0x80)
+                self.dpin.value = b & 0x80
                 self.cpin.value = True
                 self.cpin.value = False
                 b = b << 1
