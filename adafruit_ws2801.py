@@ -195,7 +195,7 @@ class WS2801:
         buf = self._buf
         if self.brightness < 1.0:
             buf = bytearray(len(self._buf))
-            for i in range(self._n):
+            for i in range(len(self._buf)):
                 buf[i] = int(self._buf[i] * self._brightness)
 
         if self._spi:
