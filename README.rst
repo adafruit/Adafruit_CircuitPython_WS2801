@@ -60,7 +60,7 @@ To install in a virtual environment in your current project:
 Usage Example
 =============
 
-This example demonstrates the library driving 
+This example demonstrates the library driving
 `a strand of 25 RGB leds <https://www.adafruit.com/product/322>`_ by a
 `Gemma M0 <https://www.adafruit.com/product/3501>`_ using the hardware SPI capable outputs.
 
