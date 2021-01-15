@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
 ### Based on example from
 ### https://github.com/adafruit/Adafruit_CircuitPython_DotStar/tree/master/examples
 
