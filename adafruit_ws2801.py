@@ -18,6 +18,7 @@ import digitalio
 
 try:
     from typing import Any, Union, Tuple, List
+    from microcontroller import Pin
 except ImportError:
     pass
 
@@ -55,7 +56,13 @@ class WS2801:
     """
 
     def __init__(
-        self, clock, data, n: int, *, brightness: float = 1.0, auto_write: bool = True
+        self,
+        clock: Pin,
+        data: Pin,
+        n: int,
+        *,
+        brightness: float = 1.0,
+        auto_write: bool = True
     ) -> None:
         self._spi = None
         try:
