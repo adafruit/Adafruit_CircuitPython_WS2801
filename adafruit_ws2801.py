@@ -16,10 +16,16 @@ import math
 import busio
 import digitalio
 
+try:
+    from typing import Any, Union, Tuple, List
+    from microcontroller import Pin
+except ImportError:
+    pass
+
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_WS2801.git"
 
-### based on https://github.com/adafruit/Adafruit_CircuitPython_DotStar
+# based on https://github.com/adafruit/Adafruit_CircuitPython_DotStar
 
 
 class WS2801:
@@ -49,7 +55,15 @@ class WS2801:
             time.sleep(2)
     """
 
-    def __init__(self, clock, data, n, *, brightness=1.0, auto_write=True):
+    def __init__(
+        self,
+        clock: Pin,
+        data: Pin,
+        n: int,
+        *,
+        brightness: float = 1.0,
+        auto_write: bool = True
+    ) -> None:
         self._spi = None
         try:
             self._spi = busio.SPI(clock, MOSI=data)
@@ -64,15 +78,15 @@ class WS2801:
             self.cpin.value = False
         self._n = n
         self._buf = bytearray(n * 3)
-        self._brightness = 1.0  ### keeps pylint happy
+        self._brightness = 1.0  # keeps pylint happy
         # Set auto_write to False temporarily so brightness setter does _not_
         # call show() while in __init__.
         self.auto_write = False
         self.brightness = brightness
         self.auto_write = auto_write
-        ### TODO - review/consider adding GRB support like that in c++ version
+        # TODO - review/consider adding GRB support like that in c++ version
 
-    def deinit(self):
+    def deinit(self) -> None:
         """Blank out the DotStars and release the resources."""
         self.auto_write = False
         black = (0, 0, 0)
@@ -84,16 +98,18 @@ class WS2801:
             self.dpin.deinit()
             self.cpin.deinit()
 
-    def __enter__(self):
+    def __enter__(self) -> "WS2801":
         return self
 
-    def __exit__(self, exception_type, exception_value, traceback):
+    def __exit__(
+        self, exception_type: Any, exception_value: Any, traceback: Any
+    ) -> None:
         self.deinit()
 
     def __repr__(self):
         return "[" + ", ".join([str(x) for x in self]) + "]"
 
-    def _set_item(self, index, value):
+    def _set_item(self, index: int, value: Union[Tuple[int, ...], int]):
         offset = index * 3
         if isinstance(value, int):
             r = value >> 16
@@ -106,7 +122,7 @@ class WS2801:
         self._buf[offset + 1] = g
         self._buf[offset + 2] = b
 
-    def __setitem__(self, index, val):
+    def __setitem__(self, index: int, val: Union[Tuple[int, ...], int]):
         if isinstance(index, slice):
             start, stop, step = index.indices(self._n)
             length = stop - start
@@ -122,7 +138,9 @@ class WS2801:
         if self.auto_write:
             self.show()
 
-    def __getitem__(self, index):
+    def __getitem__(
+        self, index: Union[slice, int]
+    ) -> Union[Tuple[int, ...], List[Tuple[int, ...]]]:
         if isinstance(index, slice):
             out = []
             for in_i in range(*index.indices(self._n)):
@@ -135,21 +153,21 @@ class WS2801:
         offset = index * 3
         return tuple(self._buf[offset + i] for i in range(3))
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self._n
 
     @property
-    def brightness(self):
+    def brightness(self) -> float:
         """Overall brightness of the pixel"""
         return self._brightness
 
     @brightness.setter
-    def brightness(self, brightness):
+    def brightness(self, brightness: float) -> None:
         self._brightness = min(max(brightness, 0.0), 1.0)
         if self.auto_write:
             self.show()
 
-    def fill(self, color):
+    def fill(self, color: Union[Tuple[int, ...], int]) -> None:
         """Colors all pixels the given ***color***."""
         auto_write = self.auto_write
         self.auto_write = False
@@ -159,7 +177,7 @@ class WS2801:
             self.show()
         self.auto_write = auto_write
 
-    def _ds_writebytes(self, buf):
+    def _ds_writebytes(self, buf: bytearray) -> None:
         for b in buf:
             for _ in range(8):
                 self.dpin.value = b & 0x80
@@ -167,7 +185,7 @@ class WS2801:
                 self.cpin.value = False
                 b = b << 1
 
-    def show(self):
+    def show(self) -> None:
         """Shows the new colors on the pixels themselves if they haven't already
         been autowritten.
 
