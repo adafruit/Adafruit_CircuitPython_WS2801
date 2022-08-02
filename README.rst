@@ -13,6 +13,10 @@ Introduction
     :target: https://github.com/adafruit/Adafruit_CircuitPython_WS2801/actions/
     :alt: Build Status
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+    :alt: Code Style: Black
+
 Higher level WS2801 driver that presents the LED string as a sequence.
 It is the same api as the
 `NeoPixel library <https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel>`_.
