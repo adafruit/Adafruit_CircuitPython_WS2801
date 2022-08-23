@@ -44,9 +44,15 @@ master_doc = "index"
 
 # General information about the project.
 project = "Adafruit WS2801 Library"
+creation_year = "2018"
 current_year = str(datetime.datetime.now().year)
+year_duration = (
+    current_year
+    if current_year == creation_year
+    else creation_year + " - " + current_year
+)
 copyright = (
-    current_year + " Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters"
+    year_duration + " Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters"
 )
 author = "Damien P. George, Limor Fried & Scott Shawcroft, Kevin J Walters"
 
