@@ -20,6 +20,7 @@ leds = adafruit_ws2801.WS2801(
 
 ######################### HELPERS ##############################
 
+
 # a random color 0 -> 224
 def random_color():
     return random.randrange(0, 7) * 32
