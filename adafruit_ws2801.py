@@ -30,8 +30,6 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_WS2801.git"
 
 # based on https://github.com/adafruit/Adafruit_CircuitPython_DotStar
 
-START_HEADER_SIZE = 4
-
 # Pixel color order constants
 RBG = "PRBG"
 """Red Blue Green"""
