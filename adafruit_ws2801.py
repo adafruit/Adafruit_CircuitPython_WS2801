@@ -56,8 +56,8 @@ class WS2801(adafruit_pixelbuf.PixelBuf):
     :param bool auto_write: True if the dotstars should immediately change when
         set. If False, `show` must be called explicitly.
     :param str pixel_order: Set the pixel order on the strip - different
-         strips implement this differently. If you send red, and it looks blue
-         or green on the strip, modify this! It should be one of the values above.
+        strips implement this differently. If you send red, and it looks blue
+        or green on the strip, modify this! It should be one of the values above.
 
     Example for Gemma M0:
 
@@ -72,6 +72,23 @@ class WS2801(adafruit_pixelbuf.PixelBuf):
         with adafruit_ws2801.WS2801(board.D2, board.D0, 25, brightness=1.0) as pixels:
             pixels[0] = darkred
             time.sleep(2)
+
+    .. py:method:: show()
+
+        Shows the new colors on the ws2801 LEDs themselves if they haven't already
+        been autowritten.
+
+        The colors may or may not be showing after this function returns because
+        it may be done asynchronously.
+
+    .. py:method:: fill(color)
+
+        Colors all ws2801 LEDs  the given ***color***.
+
+    .. py:attribute:: brightness
+
+        Overall brightness of all ws2801 LEDs (0 to 1.0)
+
     """
 
     def __init__(  # pylint: disable=too-many-arguments
@@ -119,7 +136,7 @@ class WS2801(adafruit_pixelbuf.PixelBuf):
         )
 
     def deinit(self) -> None:
-        """Blank out the DotStars and release the resources."""
+        """Blank out the ws2801 LEDs and release the resources."""
         self.fill(0)
         self.show()
         if self._spi:
