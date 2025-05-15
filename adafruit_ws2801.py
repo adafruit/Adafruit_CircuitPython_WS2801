@@ -18,9 +18,10 @@ import busio
 import digitalio
 
 try:
-    from typing import Type, Optional
-    from circuitpython_typing import ReadableBuffer
     from types import TracebackType
+    from typing import Optional, Type
+
+    from circuitpython_typing import ReadableBuffer
     from microcontroller import Pin
 except ImportError:
     pass
@@ -91,7 +92,7 @@ class WS2801(adafruit_pixelbuf.PixelBuf):
 
     """
 
-    def __init__(  # pylint: disable=too-many-arguments
+    def __init__(
         self,
         clock: Pin,
         data: Pin,
@@ -165,7 +166,7 @@ class WS2801(adafruit_pixelbuf.PixelBuf):
                 self.dpin.value = b & 0x80
                 self.cpin.value = True
                 self.cpin.value = False
-                b = b << 1
+                b = b << 1  # noqa: PLW2901
 
     def _transmit(self, buffer: ReadableBuffer) -> None:
         if self._spi:
