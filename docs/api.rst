@@ -5,7 +5,7 @@
 .. use this format as the module name: "adafruit_foo.foo"
 
 API Reference
-=============
+#############
 
 .. automodule:: adafruit_ws2801
    :members:
