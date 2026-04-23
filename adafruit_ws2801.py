@@ -166,7 +166,7 @@ class WS2801(adafruit_pixelbuf.PixelBuf):
                 self.dpin.value = b & 0x80
                 self.cpin.value = True
                 self.cpin.value = False
-                b = b << 1  # noqa: PLW2901
+                b <<= 1  # noqa: PLW2901
 
     def _transmit(self, buffer: ReadableBuffer) -> None:
         if self._spi:
